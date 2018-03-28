@@ -1,0 +1,93 @@
+.App {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.App::after {
+  content: "";
+  /*background: linear-gradient(110deg, #00CCB4 54%, #FFCCB4 54%);*/
+  background-color: #FFCCB4;
+  opacity: 0.6;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.PhoneContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  height: 80vh;
+  width: 44vh;
+  background: linear-gradient(110deg, #FFCCB4 60%, #00CCB4 60%);
+  /*box-shadow: -1vh 1vh 3vh 0.5vh grey;*/
+  box-shadow: -2vh 2vh 5vh -1vh black;
+  border-radius: 1%;
+}
+
+.DisplayComponent {
+  width: 40vh;
+  height: 30vh;
+  align-self: center;
+  margin-top: 2vh;
+  background-color: white;
+  border-radius: 1vh;
+}
+
+.ControlButtons {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 4vh;
+}
+
+.ControlButtons > button {
+  background-color: white;
+  border: 0;
+  border-radius: 1vh;
+  height: 8vh;
+  width: 12vh;
+  font-size: 4vh;
+}
+
+.NumButtons {
+  display: flex;
+  flex-direction: column;
+  height: 36vh;
+  justify-content: center;
+}
+
+.NumButtons div > button {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  height: 7vh;
+  width: 12vh;
+  border: 0;
+  border-radius: 1vh;
+}
+
+.NumButtons div {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  margin: 0 1vh 0 1vh;
+}
+
+.NumButtons div:not(:last-child) > button {
+  margin-bottom: 1vh;
+}
+
+.KeyNumber {
+  font-size: 3vh;
+  font-weight: 600;
+}
+
+.KeyLetters {
+  font-size: 1.5vh;
+  align-self: flex-end;
+}
