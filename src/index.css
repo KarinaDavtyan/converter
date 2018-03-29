@@ -6,7 +6,7 @@ body {
 
 button:active {
   outline: none;
-  box-shadow: inset 0.1vh -0.2vh 2vh 0vh grey;
+  box-shadow: inset 0.1vh -0.2vh 2vh 0vh lightgrey;
 }
 
 button:focus {

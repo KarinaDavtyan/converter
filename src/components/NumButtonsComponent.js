@@ -8,7 +8,8 @@ const NumButtonsComponent = () => {
           <div className='KeyNumber'>
             1
           </div>
-          <div className='KeyLetters'>
+          <div className='KeyLetters' style={{'fontSize': '2vh'}}>
+            &#9141;
           </div>
         </button>
         <button>
