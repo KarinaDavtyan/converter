@@ -2,6 +2,10 @@ import React from 'react';
 
 class NumButtonsComponent extends React.Component {
 
+  state = {
+    text: ''
+  }
+
   renderButtons = () => {
     const keyboard = {
       1: [
@@ -32,10 +36,12 @@ class NumButtonsComponent extends React.Component {
         'w','x','y','z'
       ]
     }
-
     const buttons = Object.keys(keyboard).map(key => {
       return (
-        <button key={key}>
+        <button
+          key={key}
+          onClick={() => this.handleClick(key)}
+        >
           <div className='KeyNumber'>
             {key}
           </div>
@@ -46,6 +52,27 @@ class NumButtonsComponent extends React.Component {
       )
     })
     return buttons;
+  }
+
+  handleClick = (key) => {
+    if (this.state.text.length <= 12) {
+      this.setState((prevState) => {
+        return {
+          text: prevState.text + key
+        }
+      })
+    }
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    if (prevState.text !== this.state.text && this.state.text.length !== 0) {
+      this.props.convert(this.state.text);
+    }
+    if (prevProps.words !== this.props.words && this.props.words.length === 0) {
+      this.setState({
+        text: ''
+      })
+    }
   }
 
   render () {
