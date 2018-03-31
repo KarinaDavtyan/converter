@@ -6,31 +6,34 @@ and (max-width: 800px) {
     width: 100%;
     border-radius: 0%;
   }
-  .DisplayComponent {
+  .PhoneContainer > .DisplayComponent {
     width: 90vw;
     height: 40vh;
   }
-  .ControlButtons {
+  .PhoneContainer > .ControlButtons {
     justify-content: center;
   }
-  .ControlButtons > button {
+  .PhoneContainer > .ControlButtons > button {
     height: 12vh;
     width: 41vw;
     margin: 0 4vw 0 4vw;
   }
-  .NumButtons {
+  .PhoneContainer > .NumButtons {
     width: 90vw;
   }
-  .NumButtons > button {
+  .PhoneContainer > .NumButtons > button {
     height: 10vh;
     width: 23vw;
     margin-top: 2vh;
   }
-  .KeyNumber {
+  .PhoneContainer > .NumButtons > button > .KeyNumber {
     font-size: 4vh;
   }
-  .KeyLetters {
+  .PhoneContainer > .NumButtons > button > .KeyLetters {
     font-size: 2.5vh;
+  }
+  .PhoneContainer > .ControlButtons > button {
+    font-size: 7vh;
   }
 }
 
