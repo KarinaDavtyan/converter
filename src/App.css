@@ -1,3 +1,38 @@
+@media screen
+and (min-width: 320px)
+and (max-width: 800px) {
+  .App > .PhoneContainer {
+    height: 100%;
+    width: 100%;
+    border-radius: 0%;
+  }
+  .DisplayComponent {
+    width: 90vw;
+    height: 40vh;
+  }
+  .ControlButtons {
+    justify-content: center;
+  }
+  .ControlButtons > button {
+    height: 12vh;
+    width: 41vw;
+    margin: 0 4vw 0 4vw;
+  }
+  .NumButtons {
+    width: 90vw;
+  }
+  .NumButtons > button {
+    height: 10vh;
+    width: 23vw;
+    margin-top: 2vh;
+  }
+  .KeyNumber {
+    font-size: 4vh;
+  }
+  .KeyLetters {
+    font-size: 2.5vh;
+  }
+}
 
 .App {
   display: flex;
@@ -92,38 +127,15 @@
   align-self: flex-end;
 }
 
-@media screen
-and (min-width: 320px)
-and (max-width: 800px) {
-  .App > .PhoneContainer {
-    height: 100%;
-    width: 100%;
-    border-radius: 0%;
-  }
-  .DisplayComponent {
-    width: 90vw;
-    height: 40vh;
-  }
-  .ControlButtons {
-    justify-content: center;
-  }
-  .ControlButtons > button {
-    height: 12vh;
-    width: 41vw;
-    margin: 0 4vw 0 4vw;
-  }
-  .NumButtons {
-    width: 90vw;
-  }
-  .NumButtons > button {
-    height: 10vh;
-    width: 23vw;
-    margin-top: 2vh;
-  }
-  .KeyNumber {
-    font-size: 4vh;
-  }
-  .KeyLetters {
-    font-size: 2.5vh;
-  }
+
+.WordsList {
+  height: inherit;
+  flex-direction: column;
+  overflow: scroll;
+  display: flex;
+}
+
+.Word {
+  width: fit-content;
+  margin: 0.4vh;
 }
