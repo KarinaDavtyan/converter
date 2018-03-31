@@ -7,7 +7,15 @@ const defaultState = {
 const textReducers = (state = defaultState, action) => {
   switch (action.type) {
   case typeAction.CLEAR_TEXT:
-    return state = undefined
+    return {
+      ...state,
+      text: ''
+    }
+  case typeAction.CONVERT_TEXT_RECEIVE:
+    return {
+      ...state,
+      text: action.text
+    }
   default:
     return state;
   }
