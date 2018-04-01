@@ -40,7 +40,7 @@ class ButtonsComponent extends React.Component {
       return (
         <button
           key={key}
-          onClick={() => this.handleClick(key)}
+          onClick={() => this.handleKeyClick(key)}
         >
           <div className='KeyNumber'>
             {key}
@@ -54,7 +54,7 @@ class ButtonsComponent extends React.Component {
     return buttons;
   }
 
-  handleClick = (key) => {
+  handleKeyClick = (key) => {
     if (this.state.text.length <= 10) {
       this.setState((prevState) => {
         return {
@@ -64,9 +64,25 @@ class ButtonsComponent extends React.Component {
     }
   }
 
+  handleDeleteClick = () => {
+    this.props.clearText();
+    this.setState({
+      text: ''
+    })
+  }
+
+  handleUndoClick = () => {
+    this.setState((prevState) => {
+      return {
+        text: prevState.text.substr(0, prevState.text.length-1)
+      }
+    })
+  }
+
   componentDidUpdate (prevProps, prevState) {
-    if (prevState.text !== this.state.text && this.state.text.length !== 0) {
-      this.props.convert(this.state.text);
+    if (prevState.text !== this.state.text) {
+      this.state.text.length === 0
+        ? this.props.clearText() : this.props.convert(this.state.text);
     }
     if (prevProps.words !== this.props.words && this.props.words.length === 0) {
       this.setState({
@@ -75,15 +91,25 @@ class ButtonsComponent extends React.Component {
     }
   }
 
+  // componentDidMount () {
+  //   if (this.props.words && this.props.words.length > 0 && this.state.text.length === 0) {
+  //     this.setState({
+  //       text: this.props.words
+  //     })
+  //   }
+  // }
+
   render () {
     return (
       <div className='Buttons'>
         <div className='ControlButtons'>
-          <button>
-            <span role='img' aria-label='squared ok'>🆗</span>
+          <button
+            onClick={() => this.handleUndoClick()}
+          >
+            <span role='img' aria-label='back with leftwards arrow above'>🔙</span>
           </button>
           <button
-            onClick={() => this.props.clearText()}
+            onClick={() => this.handleDeleteClick()}
           >
             <span role='img' aria-label='fire'>🔥</span>
           </button>
