@@ -13,8 +13,9 @@ class PhoneContainer extends React.Component {
       <div className='PhoneContainer'>
         <DisplayComponent text={this.props.text} />
         <ButtonsComponent
-          convert={this.props.fetchConvertation}
           words={this.props.text}
+          numbers={this.props.numbers}
+          convert={this.props.fetchConvertation}
           clearText={this.props.clearText}
         />
       </div>
@@ -23,7 +24,8 @@ class PhoneContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  text: state.text
+  text: state.text,
+  numbers: state.numbers
 })
 
 export default connect(mapStateToProps, {

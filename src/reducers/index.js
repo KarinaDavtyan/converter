@@ -1,20 +1,28 @@
 import * as typeAction from '../actions'
 
 const defaultState = {
-  text: ''
+  text: '',
+  numbers: ''
 }
 
 const textReducers = (state = defaultState, action) => {
   switch (action.type) {
   case typeAction.CLEAR_TEXT:
+  console.log('here');
     return {
       ...state,
-      text: ''
+      text: '',
+      numbers: ''
     }
   case typeAction.CONVERT_TEXT_RECEIVE:
     return {
       ...state,
       text: action.text
+    }
+  case typeAction.UPDATE_NUMBERS:
+    return {
+      ...state,
+      numbers: action.numbers
     }
   default:
     return state;

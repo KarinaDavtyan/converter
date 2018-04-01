@@ -14,6 +14,12 @@ export const receiveConvertText = (text) => ({
   text
 })
 
+export const UPDATE_NUMBERS = 'UPDATE_NUMBERS';
+export const updateNumbers = (numbers) => ({
+  type: 'UPDATE_NUMBERS',
+  numbers
+})
+
 export const fetchConvertation = (num) => (dispatch) => {
   dispatch(requestConvertText(num));
   return fetch(`http://localhost:3000/${num}`)
@@ -22,6 +28,7 @@ export const fetchConvertation = (num) => (dispatch) => {
       error => console.log('An error occurred.', error)
     )
     .then(text => {
-      dispatch(receiveConvertText(text))
+      dispatch(receiveConvertText(text));
+      dispatch(updateNumbers(num))
     })
 }
