@@ -13,26 +13,26 @@ and (max-width: 800px) {
   .PhoneContainer > .ControlButtons {
     justify-content: center;
   }
-  .PhoneContainer > .ControlButtons > button {
+  .Buttons > .ControlButtons > button {
     height: 12vh;
     width: 41vw;
     margin: 0 4vw 0 4vw;
   }
-  .PhoneContainer > .NumButtons {
+  .Buttons > .NumButtons {
     width: 90vw;
   }
-  .PhoneContainer > .NumButtons > button {
+  .Buttons > .NumButtons > button {
     height: 10vh;
     width: 23vw;
     margin-top: 2vh;
   }
-  .PhoneContainer > .NumButtons > button > .KeyNumber {
+  .Buttons > .NumButtons > button > .KeyNumber {
     font-size: 4vh;
   }
-  .PhoneContainer > .NumButtons > button > .KeyLetters {
+  .Buttons > .NumButtons > button > .KeyLetters {
     font-size: 2.5vh;
   }
-  .PhoneContainer > .ControlButtons > button {
+  .Buttons > .ControlButtons > button {
     font-size: 7vh;
   }
 }
@@ -42,19 +42,7 @@ and (max-width: 800px) {
   justify-content: center;
   height: 100vh;
   width: 100vw;
-}
-
-.App::after {
-  content: "";
-  /*background: linear-gradient(110deg, #00CCB4 54%, #FFCCB4 54%);*/
-  background-color: #FFCCB4;
-  opacity: 0.6;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
+  background-color: #FFE0D2;
 }
 
 .PhoneContainer {
@@ -64,7 +52,6 @@ and (max-width: 800px) {
   height: 80vh;
   width: 50vh;
   background: linear-gradient(110deg, #FFCCB4 60%, #00CCB4 60%);
-  /*box-shadow: -1vh 1vh 3vh 0.5vh grey;*/
   box-shadow: -2vh 2vh 5vh -1vh black;
   border-radius: 1%;
 }
@@ -78,6 +65,10 @@ and (max-width: 800px) {
   border-radius: 1vh;
 }
 
+.Buttons {
+  display: flex;
+  flex-direction: column;
+}
 .ControlButtons {
   display: flex;
   justify-content: space-around;
@@ -129,7 +120,6 @@ and (max-width: 800px) {
   font-size: 1.5vh;
   align-self: flex-end;
 }
-
 
 .WordsList {
   height: inherit;

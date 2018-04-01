@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { clearText, fetchConvertation } from '../actions';
 
 import DisplayComponent from '../components/DisplayComponent';
-import ControlButtonsComponent from '../components/ControlButtonsComponent';
-import NumButtonsComponent from '../components/NumButtonsComponent';
+import ButtonsComponent from '../components/ButtonsComponent';
 
 class PhoneContainer extends React.Component {
 
@@ -13,10 +12,10 @@ class PhoneContainer extends React.Component {
     return (
       <div className='PhoneContainer'>
         <DisplayComponent text={this.props.text} />
-        <ControlButtonsComponent clearText={this.props.clearText} />
-        <NumButtonsComponent
+        <ButtonsComponent
           convert={this.props.fetchConvertation}
           words={this.props.text}
+          clearText={this.props.clearText}
         />
       </div>
     )

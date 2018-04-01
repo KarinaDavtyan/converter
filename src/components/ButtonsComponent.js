@@ -1,6 +1,6 @@
 import React from 'react';
 
-class NumButtonsComponent extends React.Component {
+class ButtonsComponent extends React.Component {
 
   state = {
     text: ''
@@ -55,7 +55,7 @@ class NumButtonsComponent extends React.Component {
   }
 
   handleClick = (key) => {
-    if (this.state.text.length <= 12) {
+    if (this.state.text.length <= 10) {
       this.setState((prevState) => {
         return {
           text: prevState.text + key
@@ -77,11 +77,23 @@ class NumButtonsComponent extends React.Component {
 
   render () {
     return (
-      <div className='NumButtons'>
-        {this.renderButtons()}
+      <div className='Buttons'>
+        <div className='ControlButtons'>
+          <button>
+            <span role='img' aria-label='squared ok'>🆗</span>
+          </button>
+          <button
+            onClick={() => this.props.clearText()}
+          >
+            <span role='img' aria-label='fire'>🔥</span>
+          </button>
+        </div>
+        <div className='NumButtons'>
+          {this.renderButtons()}
+        </div>
       </div>
     )
   }
 }
 
-export default NumButtonsComponent;
+export default ButtonsComponent;
