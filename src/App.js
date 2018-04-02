@@ -5,16 +5,28 @@ import './App.css';
 import PhoneContainer from './containers/PhoneContainer';
 
 class App extends Component {
+
+  handleClose = (event, reason) => {
+    if (reason === 'timeout') {
+      this.setState({
+        open: false
+      })
+    }
+  }
+
   render () {
     return (
       <div className='App'>
         <PhoneContainer />
         <Snackbar
           open={(new Date()).getTime() <= this.props.noteTime}
+          onClose={this.handleClose}
+          autoHideDuration={5000}
           SnackbarContentProps={{
             'aria-describedby': 'notificationMessage',
           }}
-          message={<span id='this.props.noteMsg'>I</span>}
+          message={<span id='this.props.noteMsg'>{this.props.noteMsg}</span>}
+          disableWindowBlurListener={false}
         />
       </div>
     );
