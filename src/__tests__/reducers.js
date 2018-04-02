@@ -26,7 +26,7 @@ describe('reducer', () => {
       numbers: ''
     })
   })
-  it('should handle CONVERT_TEXT_RECEIVE', () => {
+  it('should handle CONVERT_TEXT_SUCCESS', () => {
     expect(
       reducer(
         {
@@ -34,7 +34,7 @@ describe('reducer', () => {
           numbers: ''
         },
         {
-          type: typeAction.CONVERT_TEXT_RECEIVE,
+          type: typeAction.CONVERT_TEXT_SUCCESS,
           text: ['a', 'b', 'c']
         }
       )

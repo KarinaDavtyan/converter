@@ -3,14 +3,15 @@ export const clearText = () => ({
   type: 'CLEAR_TEXT',
 })
 
+export const CONVERT_TEXT_REQUEST = 'CONVERT_TEXT_REQUEST';
 const requestConvertText = (num) => ({
   type: 'CONVERT_TEXT_REQUEST',
   num
 })
 
-export const CONVERT_TEXT_RECEIVE = 'CONVERT_TEXT_RECEIVE';
-export const receiveConvertText = (text) => ({
-  type: 'CONVERT_TEXT_RECEIVE',
+export const CONVERT_TEXT_SUCCESS = 'CONVERT_TEXT_SUCCESS';
+export const successConvertText = (text) => ({
+  type: 'CONVERT_TEXT_SUCCESS',
   text
 })
 
@@ -20,7 +21,7 @@ export const updateNumbers = (numbers) => ({
   numbers
 })
 
-export const fetchConvertation = (num) => (dispatch) => {
+export const fetchConversion = (num) => (dispatch) => {
   dispatch(requestConvertText(num));
   return fetch(`http://localhost:3000/${num}`)
     .then(
@@ -28,7 +29,7 @@ export const fetchConvertation = (num) => (dispatch) => {
       error => console.log('An error occurred.', error)
     )
     .then(text => {
-      dispatch(receiveConvertText(text));
+      dispatch(successConvertText(text));
       dispatch(updateNumbers(num))
     })
 }

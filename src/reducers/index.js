@@ -13,7 +13,7 @@ const textReducers = (state = defaultState, action) => {
       text: '',
       numbers: ''
     }
-  case typeAction.CONVERT_TEXT_RECEIVE:
+  case typeAction.CONVERT_TEXT_SUCCESS:
     return {
       ...state,
       text: action.text

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { clearText, fetchConvertation } from '../actions';
+import { clearText, fetchConversion } from '../actions';
 
 import DisplayComponent from '../components/DisplayComponent';
 import ButtonsComponent from '../components/ButtonsComponent';
@@ -15,7 +15,7 @@ class PhoneContainer extends React.Component {
         <ButtonsComponent
           words={this.props.text}
           numbers={this.props.numbers}
-          convert={this.props.fetchConvertation}
+          convert={this.props.fetchConversion}
           clearText={this.props.clearText}
         />
       </div>
@@ -30,5 +30,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   clearText,
-  fetchConvertation
+  fetchConversion
 })(PhoneContainer);
