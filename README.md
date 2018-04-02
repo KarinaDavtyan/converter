@@ -17,6 +17,10 @@ Installation
 
 `yarn start`
 
+or
+
+`yarn test` for testing
+
 Usage
 ----
 
