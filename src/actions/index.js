@@ -1,3 +1,5 @@
+import { checkStatus } from '../helpers';
+
 export const CLEAR_TEXT = 'CLEAR_TEXT';
 export const clearText = () => ({
   type: 'CLEAR_TEXT',
@@ -24,13 +26,15 @@ export const updateNumbers = (numbers) => ({
 export const fetchConversion = (num) => (dispatch) => {
   dispatch(requestConvertText(num));
   return fetch(`http://localhost:3000/${num}`)
-    .then(
-      response => response.json(),
-      error => dispatch(showNotification('Unprocessable entity🤷‍♀️'))
-    )
+    .then(checkStatus)
+    .then(response => response.json())
     .then(text => {
-      dispatch(successConvertText(text));
-      dispatch(updateNumbers(num))
+      if (!text) {
+        dispatch(showNotification('Unprocessable entity🤷‍'))
+      } else {
+        dispatch(successConvertText(text));
+        dispatch(updateNumbers(num))
+      }
     })
 }
 

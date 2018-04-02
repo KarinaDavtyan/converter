@@ -83,7 +83,7 @@ class ButtonsComponent extends React.Component {
       this.state.text.length === 0
         ? this.props.clearText() : this.props.convert(this.state.text);
     }
-    if (prevProps.words !== this.props.words && this.props.words.length === 0) {
+    if (prevProps.words !== this.props.words &&  this.props.words && this.props.words.length === 0) {
       this.setState({
         text: ''
       })
