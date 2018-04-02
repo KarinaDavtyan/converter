@@ -1,31 +1,11 @@
-import * as typeAction from '../actions'
+import { combineReducers } from 'redux';
 
-const defaultState = {
-  text: '',
-  numbers: ''
-}
+import message from './message';
+import notification from './notification';
 
-const textReducers = (state = defaultState, action) => {
-  switch (action.type) {
-  case typeAction.CLEAR_TEXT:
-    return {
-      ...state,
-      text: '',
-      numbers: ''
-    }
-  case typeAction.CONVERT_TEXT_SUCCESS:
-    return {
-      ...state,
-      text: action.text
-    }
-  case typeAction.UPDATE_NUMBERS:
-    return {
-      ...state,
-      numbers: action.numbers
-    }
-  default:
-    return state;
-  }
-}
+const appReducers = combineReducers({
+  message,
+  notification
+})
 
-export default textReducers;
+export default appReducers;

@@ -24,8 +24,8 @@ class PhoneContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  text: state.text,
-  numbers: state.numbers
+  text: state.message.text,
+  numbers: state.message.numbers
 })
 
 export default connect(mapStateToProps, {

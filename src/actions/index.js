@@ -26,10 +26,16 @@ export const fetchConversion = (num) => (dispatch) => {
   return fetch(`http://localhost:3000/${num}`)
     .then(
       response => response.json(),
-      error => console.log('An error occurred.', error)
+      error => dispatch(showNotification('Unprocessable entity🤷‍♀️'))
     )
     .then(text => {
       dispatch(successConvertText(text));
       dispatch(updateNumbers(num))
     })
 }
+
+export const SHOW_NOTIFICATION = 'SHOW_NOTIFICATION';
+export const showNotification = (msg) => ({
+  type: 'SHOW_NOTIFICATION',
+  msg
+})

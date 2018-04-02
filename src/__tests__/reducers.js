@@ -1,5 +1,5 @@
 import * as typeAction from '../actions';
-import reducer from '../reducers';
+import reducer from '../reducers/message';
 
 describe('reducer', () => {
   it('should return initial state', () => {
