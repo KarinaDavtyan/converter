@@ -55,7 +55,7 @@ class ButtonsComponent extends React.Component {
   }
 
   handleKeyClick = (key) => {
-    if (this.state.text.length <= 10) {
+    if (this.state.text.length <= 10 && key !== '1') {
       this.setState((prevState) => {
         return {
           text: prevState.text + key
