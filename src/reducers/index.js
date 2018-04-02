@@ -8,7 +8,6 @@ const defaultState = {
 const textReducers = (state = defaultState, action) => {
   switch (action.type) {
   case typeAction.CLEAR_TEXT:
-  console.log('here');
     return {
       ...state,
       text: '',

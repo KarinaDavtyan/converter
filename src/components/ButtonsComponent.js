@@ -65,7 +65,6 @@ class ButtonsComponent extends React.Component {
   }
 
   handleDeleteClick = () => {
-    this.props.clearText();
     this.setState({
       text: ''
     })
@@ -92,7 +91,6 @@ class ButtonsComponent extends React.Component {
   }
 
   componentDidMount () {
-    console.log('happenung');
     if (this.props.words && this.props.words.length > 0 && this.state.text.length === 0) {
       this.setState({
         text: this.props.numbers
