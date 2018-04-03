@@ -17,9 +17,10 @@ class DisplayComponent extends React.Component {
     let { scrollHeight, scrollTop, offsetHeight } = this.WordsListNode;
     if (scrollHeight - scrollTop === offsetHeight) {
       this.props.onScrollEnd(true);
-      if (this.WordsListNode
-        && this.WordsListNode.firstElementChild
-      ) this.WordsListNode.firstElementChild.scrollIntoView();
+      if (this.WordsListNode && this.WordsListNode.firstElementChild
+        && this.props.text.length >= 100) {
+        this.WordsListNode.firstElementChild.scrollIntoView();
+      }
     } else {
       this.props.onScrollEnd(false);
     }

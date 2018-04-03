@@ -75,9 +75,12 @@ class ButtonsComponent extends React.Component {
   }
 
   handleUndoClick = () => {
-    const page = this.props.page.current - 1;
-    console.log(page, 'converting');
-    this.props.convert(this.state.text, page);
+    if (this.props.page.current >= 2) {
+      const page = this.props.page.current - 1;
+      this.props.convert(this.state.text, page);
+    } else {
+      this.props.showNotification('Sorry you cannot go back from the 1st page🤷‍')
+    }
   }
 
   componentDidUpdate (prevProps, prevState) {
@@ -91,7 +94,8 @@ class ButtonsComponent extends React.Component {
       })
     }
     if (prevProps.finishedPage !== this.props.finishedPage
-        && this.props.finishedPage && this.state.text.length !== 0) {
+        && this.props.finishedPage && this.state.text.length !== 0
+        && this.props.words.length === 100) {
       const page = this.props.page.current + 1;
       this.props.convert(this.state.text, page);
     }

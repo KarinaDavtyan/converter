@@ -16,7 +16,6 @@ const textReducers = (state = defaultState, action) => {
       text: [],
       numbers: '',
       page: {
-        ...state.page,
         current: 1
       }
     }

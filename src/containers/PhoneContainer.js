@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { clearText, fetchConversion } from '../actions';
+import { clearText, fetchConversion, showNotification } from '../actions';
 
 import DisplayComponent from '../components/DisplayComponent';
 import ButtonsComponent from '../components/ButtonsComponent';
@@ -32,6 +32,7 @@ class PhoneContainer extends React.Component {
           finishedPage={this.state.scrollEnd}
           convert={this.props.fetchConversion}
           clearText={this.props.clearText}
+          showNotification={this.props.showNotification}
         />
       </div>
     )
@@ -46,5 +47,6 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   clearText,
-  fetchConversion
+  fetchConversion,
+  showNotification
 })(PhoneContainer);
