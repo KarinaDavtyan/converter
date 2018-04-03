@@ -75,8 +75,8 @@ class ButtonsComponent extends React.Component {
   }
 
   handleUndoClick = () => {
-    if (this.props.page.current >= 2) {
-      const page = this.props.page.current - 1;
+    if (this.props.page >= 2) {
+      const page = this.props.page - 1;
       this.props.convert(this.state.text, page);
     } else {
       this.props.showNotification('Sorry you cannot go back from the 1st page🤷‍')
@@ -86,7 +86,7 @@ class ButtonsComponent extends React.Component {
   componentDidUpdate (prevProps, prevState) {
     if (prevState.text !== this.state.text) {
       this.state.text.length === 0
-        ? this.props.clearText() : this.props.convert(this.state.text, this.props.page.current);
+        ? this.props.clearText() : this.props.convert(this.state.text, this.props.page);
     }
     if (prevProps.words !== this.props.words &&  this.props.words && this.props.words.length === 0) {
       this.setState({
@@ -96,7 +96,7 @@ class ButtonsComponent extends React.Component {
     if (prevProps.finishedPage !== this.props.finishedPage
         && this.props.finishedPage && this.state.text.length !== 0
         && this.props.words.length === 100) {
-      const page = this.props.page.current + 1;
+      const page = this.props.page + 1;
       this.props.convert(this.state.text, page);
     }
   }
@@ -110,8 +110,8 @@ class ButtonsComponent extends React.Component {
   }
 
   render () {
-    let prevPage = this.props.page.current - 1;
-    let currPage = this.props.page.current;
+    let prevPage = this.props.page - 1;
+    let currPage = this.props.page;
     return (
       <div className='Buttons'>
         <div className='ControlButtons'>

@@ -3,9 +3,7 @@ import * as typeAction from '../actions'
 const defaultState = {
   text: [],
   numbers: '',
-  page: {
-    current: 1
-  }
+  page: 1
 }
 
 const textReducers = (state = defaultState, action) => {
@@ -15,9 +13,7 @@ const textReducers = (state = defaultState, action) => {
       ...state,
       text: [],
       numbers: '',
-      page: {
-        current: 1
-      }
+      page: 1
     }
   case typeAction.UPDATE_TEXT_SUCCESS:
     return {
@@ -26,10 +22,7 @@ const textReducers = (state = defaultState, action) => {
         ? state.text.concat(action.text)
         : action.text,
       numbers: action.numbers,
-      page: {
-        ...state.page,
-        current: action.page
-      }
+      page: action.page
     }
   default:
     return state;
