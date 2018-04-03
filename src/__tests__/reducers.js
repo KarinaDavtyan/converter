@@ -7,9 +7,7 @@ describe('reducer', () => {
       {
         text: [],
         numbers: '',
-        page: {
-          current: 1
-        }
+        page: 1
       }
     )
   })
@@ -27,43 +25,28 @@ describe('reducer', () => {
     ).toEqual({
       text: [],
       numbers: '',
-      page: {
-        current: 1
-      }
+      page: 1
     })
   })
-  it('should handle CONVERT_TEXT_SUCCESS', () => {
+  it('should handle UPDATE_TEXT_SUCCESS', () => {
     expect(
       reducer(
         {
-          text: '',
-          numbers: ''
+          text: [],
+          numbers: '',
+          page: 1
         },
         {
-          type: typeAction.CONVERT_TEXT_SUCCESS,
-          text: ['a', 'b', 'c']
-        }
-      )
-    ).toEqual({
-      text: ['a', 'b', 'c'],
-      numbers: ''
-    })
-  })
-  it('should handle UPDATE_NUMBERS', () => {
-    expect(
-      reducer(
-        {
+          type: typeAction.UPDATE_TEXT_SUCCESS,
           text: ['a', 'b', 'c'],
-          numbers: ''
-        },
-        {
-          type: typeAction.UPDATE_NUMBERS,
-          numbers: '2'
+          numbers: '2',
+          page: 1
         }
       )
     ).toEqual({
       text: ['a', 'b', 'c'],
-      numbers: '2'
+      numbers: '2',
+      page: 1
     })
   })
 })
