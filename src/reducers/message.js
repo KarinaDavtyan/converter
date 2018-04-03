@@ -19,21 +19,13 @@ const textReducers = (state = defaultState, action) => {
         current: 1
       }
     }
-  case typeAction.CONVERT_TEXT_SUCCESS:
+  case typeAction.UPDATE_TEXT_SUCCESS:
     return {
       ...state,
       text: state.text.length > 100
         ? state.text.concat(action.text)
-        : action.text
-    }
-  case typeAction.UPDATE_NUMBERS:
-    return {
-      ...state,
-      numbers: action.numbers
-    }
-  case typeAction.UPDATE_PAGE:
-    return {
-      ...state,
+        : action.text,
+      numbers: action.numbers,
       page: {
         ...state.page,
         current: action.page

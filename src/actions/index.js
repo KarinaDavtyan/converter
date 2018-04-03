@@ -29,6 +29,14 @@ export const updatePage = (page) => ({
   page
 })
 
+export const UPDATE_TEXT_SUCCESS = 'UPDATE_TEXT_SUCCESS';
+export const updateTextSuccess = (text, numbers, page) => ({
+  type: 'UPDATE_TEXT_SUCCESS',
+  text,
+  numbers,
+  page
+})
+
 
 export const fetchConversion = (num, page) => (dispatch) => {
   dispatch(requestConvertText(num, page));
@@ -37,11 +45,9 @@ export const fetchConversion = (num, page) => (dispatch) => {
     .then(response => response.json())
     .then(text => {
       if (!text) {
-        dispatch(showNotification('Unprocessable entity🤷‍'))
+        dispatch(showNotification('Unprocessable entity🤷‍'));
       } else {
-        dispatch(successConvertText(text));
-        dispatch(updateNumbers(num));
-        dispatch(updatePage(page));
+        dispatch(updateTextSuccess(text, num, page));
       }
     })
 }
