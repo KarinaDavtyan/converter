@@ -1,6 +1,16 @@
 # Converter
 
 > T9 conversion tool
+>
+> Note:
+>
+>pagination was used in order to display all the words
+>
+>redux-thunk was chosen for API request handling over api middleware as there was just one type of request
+
+
+![converterGIF](src/assets/converterGIF.gif)
+
 
 Installation
 ----
@@ -28,13 +38,16 @@ Use phone like keyboard for typing a text
 
 Special buttons:
 
-`🔙` remove last character
+`⬅` remove last character
+
+`🔙` go to previous page
 
 `🔥` remove all
 
-[desktopView](src/assets/desktopView.png)
 
-[mobileView](src/assets/mobileView.png)
+➡️ [Desktop View](src/assets/desktopView.png)
+
+➡️ [Mobile View](src/assets/mobileView.png)
 
 Tech-stack
 ----
