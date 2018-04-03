@@ -7,6 +7,7 @@
 >pagination was used in order to display all the words
 >
 >redux-thunk was chosen for API request handling over api middleware as there was just one type of request
+>
 
 
 ![converterGIF](src/assets/converterGIF.gif)
@@ -44,6 +45,8 @@ Special buttons:
 
 `🔥` remove all
 
+Screenshots
+----
 
 ➡️ [Desktop View](src/assets/desktopView.png)
 
