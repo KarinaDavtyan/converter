@@ -81,12 +81,16 @@ class ButtonsComponent extends React.Component {
   componentDidUpdate (prevProps, prevState) {
     if (prevState.text !== this.state.text) {
       this.state.text.length === 0
-        ? this.props.clearText() : this.props.convert(this.state.text);
+        ? this.props.clearText() : this.props.convert(this.state.text, this.props.page.current);
     }
     if (prevProps.words !== this.props.words &&  this.props.words && this.props.words.length === 0) {
       this.setState({
         text: ''
       })
+    }
+    if (prevProps.finishedPage !== this.props.finishedPage && this.props.finishedPage) {
+      const page = ++this.props.page.current;
+      this.props.convert(this.state.text, page);
     }
   }
 

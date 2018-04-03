@@ -2,7 +2,11 @@ import * as typeAction from '../actions'
 
 const defaultState = {
   text: '',
-  numbers: ''
+  numbers: '',
+  page: {
+    current: 1,
+    last: null
+  }
 }
 
 const textReducers = (state = defaultState, action) => {
@@ -11,7 +15,12 @@ const textReducers = (state = defaultState, action) => {
     return {
       ...state,
       text: '',
-      numbers: ''
+      numbers: '',
+      page: {
+        ...state.page,
+        current: 1,
+        last: null
+      }
     }
   case typeAction.CONVERT_TEXT_SUCCESS:
     return {

@@ -23,9 +23,9 @@ export const updateNumbers = (numbers) => ({
   numbers
 })
 
-export const fetchConversion = (num) => (dispatch) => {
-  dispatch(requestConvertText(num));
-  return fetch(`http://localhost:3000/${num}`)
+export const fetchConversion = (num, page) => (dispatch) => {
+  dispatch(requestConvertText(num, page));
+  return fetch(`http://localhost:3000/${num}/${page}`)
     .then(checkStatus)
     .then(response => response.json())
     .then(text => {

@@ -12,10 +12,25 @@ class DisplayComponent extends React.Component {
     })
     return words;
   }
+
+  handleScroll = () => {
+    let { scrollHeight, scrollTop, offsetHeight } = this.WordsListNode;
+    if (scrollHeight - scrollTop === offsetHeight) {
+      this.props.onScrollEnd(true);
+    } else {
+      this.props.onScrollEnd(false);
+    }
+  }
+
   render () {
     return (
       <div className='DisplayComponent'>
-        <div className='WordsList'>
+        <div
+          className='WordsList'
+          id='WordsList'
+          ref={(el) => this.WordsListNode = el}
+          onScroll={() => this.handleScroll()}
+        >
           {this.props.text && this.renderWords()}
         </div>
       </div>
