@@ -23,6 +23,13 @@ export const updateNumbers = (numbers) => ({
   numbers
 })
 
+export const UPDATE_PAGE = 'UPDATE_PAGE';
+export const updatePage = (page) => ({
+  type: 'UPDATE_PAGE',
+  page
+})
+
+
 export const fetchConversion = (num, page) => (dispatch) => {
   dispatch(requestConvertText(num, page));
   return fetch(`http://localhost:3000/${num}/${page}`)
@@ -33,7 +40,8 @@ export const fetchConversion = (num, page) => (dispatch) => {
         dispatch(showNotification('Unprocessable entity🤷‍'))
       } else {
         dispatch(successConvertText(text));
-        dispatch(updateNumbers(num))
+        dispatch(updateNumbers(num));
+        dispatch(updatePage(page));
       }
     })
 }

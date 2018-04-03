@@ -8,9 +8,7 @@ class ButtonsComponent extends React.Component {
 
   renderButtons = () => {
     const keyboard = {
-      1: [
-        ''
-      ],
+      1: '⬅',
       2: [
         'a','b','c'
       ],
@@ -55,7 +53,13 @@ class ButtonsComponent extends React.Component {
   }
 
   handleKeyClick = (key) => {
-    if (this.state.text.length <= 10 && key !== '1') {
+    if (key === '1') {
+      this.setState((prevState) => {
+        return {
+          text: prevState.text.substr(0, prevState.text.length-1)
+        }
+      })
+    } else if (this.state.text.length <= 10 && key !== '1') {
       this.setState((prevState) => {
         return {
           text: prevState.text + key
@@ -71,11 +75,9 @@ class ButtonsComponent extends React.Component {
   }
 
   handleUndoClick = () => {
-    this.setState((prevState) => {
-      return {
-        text: prevState.text.substr(0, prevState.text.length-1)
-      }
-    })
+    const page = this.props.page.current - 1;
+    console.log(page, 'converting');
+    this.props.convert(this.state.text, page);
   }
 
   componentDidUpdate (prevProps, prevState) {
@@ -90,7 +92,7 @@ class ButtonsComponent extends React.Component {
     }
     if (prevProps.finishedPage !== this.props.finishedPage
         && this.props.finishedPage && this.state.text.length !== 0) {
-      const page = ++this.props.page.current;
+      const page = this.props.page.current + 1;
       this.props.convert(this.state.text, page);
     }
   }
@@ -104,12 +106,15 @@ class ButtonsComponent extends React.Component {
   }
 
   render () {
+    let prevPage = this.props.page.current - 1;
+    let currPage = this.props.page.current;
     return (
       <div className='Buttons'>
         <div className='ControlButtons'>
           <button
             onClick={() => this.handleUndoClick()}
           >
+            {currPage > 1 && prevPage}
             <span role='img' aria-label='back with leftwards arrow above'>🔙</span>
           </button>
           <button

@@ -32,6 +32,14 @@ const textReducers = (state = defaultState, action) => {
       ...state,
       numbers: action.numbers
     }
+  case typeAction.UPDATE_PAGE:
+    return {
+      ...state,
+      page: {
+        ...state.page,
+        current: action.page
+      }
+    }
   default:
     return state;
   }
