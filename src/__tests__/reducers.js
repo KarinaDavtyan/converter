@@ -5,8 +5,11 @@ describe('reducer', () => {
   it('should return initial state', () => {
     expect(reducer(undefined, {})).toEqual(
       {
-        text: '',
-        numbers: ''
+        text: [],
+        numbers: '',
+        page: {
+          current: 1
+        }
       }
     )
   })
@@ -22,8 +25,11 @@ describe('reducer', () => {
         }
       )
     ).toEqual({
-      text: '',
-      numbers: ''
+      text: [],
+      numbers: '',
+      page: {
+        current: 1
+      }
     })
   })
   it('should handle CONVERT_TEXT_SUCCESS', () => {
