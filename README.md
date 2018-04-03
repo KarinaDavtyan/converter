@@ -1,12 +1,7 @@
 # Converter
 
+>
 > T9 conversion tool
->
-> Note:
->
->pagination was used in order to display all the words
->
->redux-thunk was chosen for API request handling over api middleware as there was just one type of request
 >
 
 
