@@ -88,7 +88,8 @@ class ButtonsComponent extends React.Component {
         text: ''
       })
     }
-    if (prevProps.finishedPage !== this.props.finishedPage && this.props.finishedPage) {
+    if (prevProps.finishedPage !== this.props.finishedPage
+        && this.props.finishedPage && this.state.text.length !== 0) {
       const page = ++this.props.page.current;
       this.props.convert(this.state.text, page);
     }

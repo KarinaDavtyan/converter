@@ -1,11 +1,10 @@
 import * as typeAction from '../actions'
 
 const defaultState = {
-  text: '',
+  text: [],
   numbers: '',
   page: {
-    current: 1,
-    last: null
+    current: 1
   }
 }
 
@@ -14,18 +13,19 @@ const textReducers = (state = defaultState, action) => {
   case typeAction.CLEAR_TEXT:
     return {
       ...state,
-      text: '',
+      text: [],
       numbers: '',
       page: {
         ...state.page,
-        current: 1,
-        last: null
+        current: 1
       }
     }
   case typeAction.CONVERT_TEXT_SUCCESS:
     return {
       ...state,
-      text: action.text
+      text: state.text.length > 100
+        ? state.text.concat(action.text)
+        : action.text
     }
   case typeAction.UPDATE_NUMBERS:
     return {
